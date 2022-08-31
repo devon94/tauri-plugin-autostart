@@ -89,7 +89,7 @@ pub fn init<R: Runtime>(macos_launcher: MacosLauncher, hidden: bool) -> TauriPlu
 
       let current_exe = current_exe()?;
 
-      #[cfg(windows)]
+      #[cfg(target_os = "windows")]
       builder.set_app_path(&current_exe.display().to_string());
       #[cfg(target_os = "macos")]
       builder.set_app_path(&current_exe.canonicalize()?.display().to_string());
